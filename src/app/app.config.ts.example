@@ -1,0 +1,12 @@
+export const CONFIG = {
+  app: {
+    endpoint: 'https://your.api.url'
+  },
+  firebase: {
+    apiKey: '*****',
+    authDomain: '*****',
+    databaseURL: '*****',
+    storageBucket: '*****',
+    messagingSenderId: '*****'
+  }
+};

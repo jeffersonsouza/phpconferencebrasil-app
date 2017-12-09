@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar transparent>
+    <ion-title>Login</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <div text-center>
+    <img src="assets/logo.png" alt="Logo PHP Conference" width="70%" />
+  </div>
+
+  <form [formGroup]="loginForm" novalidate padding>
+    <ion-row>
+      <ion-item>
+        <ion-label stacked for="email">Email: </ion-label>
+        <ion-input type="email" value="" placeholder="Digite seu Email" formControlName="email"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label stacked for="password">Senha: </ion-label>
+        <ion-input type="password" placeholder="Digite sua Senha" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row margin-top="20">
+      <button (click)="login()" ion-button block outline color="light">LOGIN</button>
+    </ion-row>
+    <ion-row>
+      <button (click)="goToRegisterPage()" ion-button block clear color="light">QUERO ME CADASTRAR</button>
+    </ion-row>
+  </form>
+</ion-content>
+

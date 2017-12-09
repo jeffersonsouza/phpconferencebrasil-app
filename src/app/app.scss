@@ -1,0 +1,71 @@
+// http://ionicframework.com/docs/theming/
+
+// Fonts
+
+/* cuprum-regular - latin_latin-ext */
+@font-face {
+  font-family: 'Cuprum';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/cuprum-v9-latin_latin-ext-regular.eot'); /* IE9 Compat Modes */
+  src: local('Cuprum Regular'), local('Cuprum-Regular'),
+  url('../assets/fonts/cuprum-v9-latin_latin-ext-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../assets/fonts/cuprum-v9-latin_latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../assets/fonts/cuprum-v9-latin_latin-ext-regular.woff') format('woff'), /* Modern Browsers */
+  url('../assets/fonts/cuprum-v9-latin_latin-ext-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../assets/fonts/cuprum-v9-latin_latin-ext-regular.svg#Cuprum') format('svg'); /* Legacy iOS */
+}
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.ios, .md {
+  ion-content, ion-header, ion-menu {
+    // font-family: 'Assistant', sans-serif !important;
+    font-family: 'Cuprum', sans-serif !important;
+  }
+}
+
+ion-menu {
+  ion-content{
+    background-color: color($colors, primary, base) !important;
+    color: #fff !important;
+    font-family: 'Cuprum', sans-serif !important;
+  }
+
+  ion-item-group {
+    .item-divider {
+      .label {
+        font-size: 0.8em !important;
+      }
+    }
+  }
+
+  .item {
+    background: transparent !important;
+    color: #fff !important;
+    text-transform: uppercase;
+    font-family: 'Cuprum', sans-serif;
+
+    ion-icon {
+      margin-right: 10px;
+    }
+  }
+}
+
+ion-content{
+  background-color: color($colors, body, base) !important;
+}
+

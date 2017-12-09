@@ -1,0 +1,28 @@
+<ion-header no-border>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Curso</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <header text-center>
+    <img [src]="course?.speaker.photo" alt="{{course?.speaker.name}} photo" class="speaker-photo">
+    <p>{{course?.speaker.name}}</p>
+  </header>
+  <div id="course-details">
+    <h3 text-center>{{ course?.title}}</h3>
+    <section>
+      <h4 [hidden]="!course?.description">Descrição</h4>
+      <div [innerHTML]="course?.description"></div>
+    </section>
+    <section>
+        <h4 [hidden]="!course?.requirements">Requisitos</h4>
+        <div [innerHTML]="course?.requirements"></div>
+      </section>
+  </div>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header no-border>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Minha Grade</ion-title>
+
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <header text-center>
+    <ion-icon name="contact"></ion-icon>
+    <h4>{{user?.displayName}}</h4>
+    <p>{{user?.email}}</p>
+  </header>
+  <div>
+    <ion-grid text-center>
+      <ion-row id="days">
+        <ion-col col-4 *ngFor="let button of weekDays; let index = index;"><button ion-button outline block (click)="setActiveDay(index)" [color]="button.color">{{button.day}}</button></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-slides>
+      <ion-slide *ngFor="let day of talks | async" >
+
+        <ion-list>
+          <ion-item-group *ngFor="let group of day['hours']">
+            <ng-container>
+              <ion-item-divider sticky>
+                <ion-label>
+                  {{ group.hour }}
+                </ion-label>
+              </ion-item-divider>
+
+              <ion-item text-center *ngIf="!group.hasFavorite" disabled>Nenhuma palestra adicionada</ion-item>
+
+              <ion-item-sliding *ngFor="let talk of group.sessions" #slidingTalk >
+                <ion-item (click)="goToTalk(talk.id)" detail-push *ngIf="talk.userFavorite">
+                  <ion-avatar item-start>
+                    <img [src]="talk.speaker.photo">
+                  </ion-avatar>
+                  <h2 text-wrap>{{talk.title}}</h2>
+                  <p>{{talk.speaker.name}} - {{talk.room}}</p>
+                </ion-item>
+              </ion-item-sliding>
+            </ng-container>
+          </ion-item-group>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

@@ -1,0 +1,41 @@
+page-course {
+  header {
+    background: color($colors, primary, base);
+    margin-top: 0;
+    padding-top: 15px;
+    color: #fff;
+    padding-bottom: 70px;
+    text-align: center;
+
+    p {
+      font-size: 1.5em;
+    }
+
+    .speaker-photo {
+      background-size: 100px 100px;
+      border: #fff solid 1px;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      color: #fff;
+      margin: 0 auto;
+      object-fit: cover;
+      overflow: hidden;
+      text-align: center;
+    }
+  }
+
+  #course-details {
+    background: #fff;
+    margin: 0 15px;
+    margin-top: -50px;
+    padding: 10px;
+    position: absolute;
+    font-weight: lighter;
+    border-radius: 5px;
+
+    h4 {
+      color: #aaa;
+    }
+  }
+}

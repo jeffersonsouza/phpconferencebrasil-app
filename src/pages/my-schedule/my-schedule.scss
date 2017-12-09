@@ -1,0 +1,32 @@
+page-my-schedule {
+  header {
+    background: color($colors, primary, base);
+    margin-top: 0;
+    padding-top: 15px;
+    color: #fff;
+    padding-bottom: 30px;
+    text-align: center;
+
+    p {
+      font-size: 1.5em;
+    }
+
+    ion-icon {
+      font-size: 7em !important;
+    }
+
+    // For the future
+    .user-photo {
+      background-size: 100px 100px;
+      border: #fff solid 1px;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      color: #fff;
+      margin: 0 auto;
+      object-fit: cover;
+      overflow: hidden;
+      text-align: center;
+    }
+  }
+}

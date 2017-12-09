@@ -1,0 +1,39 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <div class="profile" text-center>
+      <img src="assets/logo.png" alt="Logo PHP Conference" width="100">
+      <h3>{{user?.displayName}}</h3>
+      <p no-padding>
+        {{user?.email}} <br>
+      </p>
+
+    </div>
+    <ion-list>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>
+            PHP Conference
+          </ion-label>
+        </ion-item-divider>
+        <a ion-item no-lines menuClose *ngFor="let page of pages" (click)="openPage(page)">
+          <ion-icon name="{{ page.icon }}"></ion-icon> {{ page.title }}
+        </a>
+      </ion-item-group>
+      <ion-item-group *ngIf="user">
+        <ion-item-divider>
+          <ion-label>
+            Seu App
+          </ion-label>
+        </ion-item-divider>
+        <a menuClose ion-item no-lines (click)="goToSchedule()">Minha Grade</a>
+        <a menuClose ion-item no-lines (click)="logout()">Sair</a>
+      </ion-item-group>
+    </ion-list>
+
+
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

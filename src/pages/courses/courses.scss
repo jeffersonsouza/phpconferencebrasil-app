@@ -1,0 +1,13 @@
+page-courses {
+  ion-card-content {
+    color: #bbb;
+
+    .tag {
+      border: solid thin #ddd;
+      padding: 0.5em;
+      text-transform: uppercase;
+      display: inline;
+      color: #bbb;
+    }
+  }
+}

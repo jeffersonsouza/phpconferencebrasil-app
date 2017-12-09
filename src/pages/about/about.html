@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PHP Conference </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <p text-center>Quem Faz a PHP Conference Acontecer</p>
+
+  <ion-list>
+
+    <ion-item-group *ngFor="let group of sponsorsGroups">
+
+      <ion-item-divider sticky>
+        <ion-label>
+          {{ group.name }}
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let sponsor of group.sponsors" text-center>
+        <a target="_blank" href="http://{{ sponsor.url }}"><img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}"></a>
+      </ion-item>
+
+    </ion-item-group>
+
+  </ion-list>
+
+</ion-content>

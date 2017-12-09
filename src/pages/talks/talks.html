@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>PHP Conference</ion-title>
+
+  </ion-navbar>
+  <ion-toolbar no-border>
+    <ion-searchbar color="primary" [(ngModel)]="queryText" placeholder="busque uma atividade...">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div text-center>
+    <h2>Palestras</h2>
+  </div>
+  <div>
+    <ion-grid text-center>
+      <ion-row id="days">
+        <ion-col col-4 *ngFor="let button of weekDays; let index = index;"><button ion-button outline block (click)="setActiveDay(index)" [color]="button.color">{{button.day}}</button></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-slides>
+      <ion-slide *ngFor="let day of talks | async" >
+
+        <ion-list>
+          <ion-item-group *ngFor="let group of day['hours']">
+            <ion-item-divider sticky>
+              <ion-label>
+                {{ group.hour }}
+              </ion-label>
+            </ion-item-divider>
+
+            <ion-item-sliding *ngFor="let talk of group.sessions | talkFilter: queryText" #slidingTalk >
+              <ion-item (click)="goToTalk(talk.id)" detail-push>
+                <ion-avatar item-start>
+                  <img [src]="talk.speaker.photo">
+                </ion-avatar>
+                <h2 text-wrap>{{talk.title}}</h2>
+                <p>{{talk.speaker.name}} - {{talk.room}}</p>
+              </ion-item>
+
+              <ion-item-options side="right">
+                <button ion-button color="primary" (click)="favoriteTalk(talk, slidingTalk)" *ngIf="!talk.userFavorite">
+                  <ion-icon name="star"></ion-icon>
+                  Adicionar
+                </button>
+
+                <button ion-button color="reverse" *ngIf="talk.userFavorite">
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  Adicionada
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+
+          </ion-item-group>
+        </ion-list>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cursos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card *ngFor="let course of courses" (click)="goToCourse(course.id)">
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="course?.speaker.photo">
+      </ion-avatar>
+      <h2>{{ course?.title }}</h2>
+      <p>{{ course?.speaker.name }}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p [innerHTML]="course?.shortDescription"></p>
+    </ion-card-content>
+    <ion-row padding #cardFooter id="cardFooter">
+      <ion-col>
+        <button ion-button block outline>mais detalhes</button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

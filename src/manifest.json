@@ -1,0 +1,13 @@
+{
+  "name": "PHP Conference Brasil",
+  "short_name": "PHP Conference",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "800x600",
+    "type": "image/png"
+  }],
+  "background_color": "#097ccd",
+  "theme_color": "#097ccd"
+}

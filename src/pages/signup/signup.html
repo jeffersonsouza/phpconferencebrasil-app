@@ -1,0 +1,42 @@
+<ion-header padding-top>
+
+  <ion-navbar transparent no-border>
+    <ion-title>Faça seu Cadastro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div text-center>
+    <img src="assets/logo.png" alt="Logo PHP Conference" width="70%" />
+  </div>
+
+  <form [formGroup]="registerForm" novalidate padding>
+    <ion-row>
+      <ion-item>
+        <ion-label stacked for="name">Nome</ion-label>
+        <ion-input type="text" value="" placeholder="Seu Nome" formControlName="name"></ion-input>
+      </ion-item>
+    </ion-row><ion-row>
+      <ion-item>
+        <ion-label stacked for="email">Email</ion-label>
+        <ion-input type="email" value="" placeholder="Seu Email" formControlName="email"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label stacked for="password">Senha</ion-label>
+        <ion-input type="password" placeholder="Crie uma Senha" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row margin-top="20">
+      <button (click)="register()" ion-button block outline color="light">CADASTRAR</button>
+    </ion-row>
+
+    <ion-row>
+      <button (click)="goBack()" ion-button block clear color="light">JÁ TENHO CONTA</button>
+    </ion-row>
+  </form>
+
+
+</ion-content>
